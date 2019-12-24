@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.renting.dao.TbRoomsCheckMapper">
+  <resultMap id="BaseResultMap" type="com.renting.entity.TbRoomsCheck">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="ronum" jdbcType="VARCHAR" property="ronum" />
+    <result column="tenid" jdbcType="INTEGER" property="tenid" />
+    <result column="rostate" jdbcType="VARCHAR" property="rostate" />
+    <result column="rocheckin" jdbcType="VARCHAR" property="rocheckin" />
+    <result column="rocheckon" jdbcType="VARCHAR" property="rocheckon" />
+    <result column="ropeoplenum" jdbcType="INTEGER" property="ropeoplenum" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+    <result column="aduser" jdbcType="VARCHAR" property="aduser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, ronum, tenid, rostate, rocheckin, rocheckon, ropeoplenum, updatetime, aduser
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_rooms_check
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_rooms_check
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.renting.entity.TbRoomsCheck">
+    insert into tb_rooms_check (id, ronum, tenid, 
+      rostate, rocheckin, rocheckon, 
+      ropeoplenum, updatetime, aduser
+      )
+    values (#{id,jdbcType=INTEGER}, #{ronum,jdbcType=VARCHAR}, #{tenid,jdbcType=INTEGER}, 
+      #{rostate,jdbcType=VARCHAR}, #{rocheckin,jdbcType=VARCHAR}, #{rocheckon,jdbcType=VARCHAR}, 
+      #{ropeoplenum,jdbcType=INTEGER}, #{updatetime,jdbcType=VARCHAR}, #{aduser,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.renting.entity.TbRoomsCheck">
+    insert into tb_rooms_check
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="ronum != null">
+        ronum,
+      </if>
+      <if test="tenid != null">
+        tenid,
+      </if>
+      <if test="rostate != null">
+        rostate,
+      </if>
+      <if test="rocheckin != null">
+        rocheckin,
+      </if>
+      <if test="rocheckon != null">
+        rocheckon,
+      </if>
+      <if test="ropeoplenum != null">
+        ropeoplenum,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="aduser != null">
+        aduser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ronum != null">
+        #{ronum,jdbcType=VARCHAR},
+      </if>
+      <if test="tenid != null">
+        #{tenid,jdbcType=INTEGER},
+      </if>
+      <if test="rostate != null">
+        #{rostate,jdbcType=VARCHAR},
+      </if>
+      <if test="rocheckin != null">
+        #{rocheckin,jdbcType=VARCHAR},
+      </if>
+      <if test="rocheckon != null">
+        #{rocheckon,jdbcType=VARCHAR},
+      </if>
+      <if test="ropeoplenum != null">
+        #{ropeoplenum,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        #{aduser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.renting.entity.TbRoomsCheck">
+    update tb_rooms_check
+    <set>
+      <if test="ronum != null">
+        ronum = #{ronum,jdbcType=VARCHAR},
+      </if>
+      <if test="tenid != null">
+        tenid = #{tenid,jdbcType=INTEGER},
+      </if>
+      <if test="rostate != null">
+        rostate = #{rostate,jdbcType=VARCHAR},
+      </if>
+      <if test="rocheckin != null">
+        rocheckin = #{rocheckin,jdbcType=VARCHAR},
+      </if>
+      <if test="rocheckon != null">
+        rocheckon = #{rocheckon,jdbcType=VARCHAR},
+      </if>
+      <if test="ropeoplenum != null">
+        ropeoplenum = #{ropeoplenum,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        aduser = #{aduser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.renting.entity.TbRoomsCheck">
+    update tb_rooms_check
+    set ronum = #{ronum,jdbcType=VARCHAR},
+      tenid = #{tenid,jdbcType=INTEGER},
+      rostate = #{rostate,jdbcType=VARCHAR},
+      rocheckin = #{rocheckin,jdbcType=VARCHAR},
+      rocheckon = #{rocheckon,jdbcType=VARCHAR},
+      ropeoplenum = #{ropeoplenum,jdbcType=INTEGER},
+      updatetime = #{updatetime,jdbcType=VARCHAR},
+      aduser = #{aduser,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

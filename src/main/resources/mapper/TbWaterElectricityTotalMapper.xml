@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.renting.dao.TbWaterElectricityTotalMapper">
+  <resultMap id="BaseResultMap" type="com.renting.entity.TbWaterElectricityTotal">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="roid" jdbcType="INTEGER" property="roid" />
+    <result column="waterconsumption" jdbcType="DOUBLE" property="waterconsumption" />
+    <result column="electricityconsumption" jdbcType="DOUBLE" property="electricityconsumption" />
+    <result column="waterrate" jdbcType="DOUBLE" property="waterrate" />
+    <result column="electricityrate" jdbcType="DOUBLE" property="electricityrate" />
+    <result column="usagedays" jdbcType="DOUBLE" property="usagedays" />
+    <result column="totalcost" jdbcType="DOUBLE" property="totalcost" />
+    <result column="paymenttime" jdbcType="VARCHAR" property="paymenttime" />
+    <result column="wetate" jdbcType="VARCHAR" property="wetate" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+    <result column="aduser" jdbcType="VARCHAR" property="aduser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, roid, waterconsumption, electricityconsumption, waterrate, electricityrate, usagedays, 
+    totalcost, paymenttime, wetate, updatetime, aduser
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_water_electricity_total
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_water_electricity_total
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.renting.entity.TbWaterElectricityTotal">
+    insert into tb_water_electricity_total (id, roid, waterconsumption, 
+      electricityconsumption, waterrate, electricityrate, 
+      usagedays, totalcost, paymenttime, 
+      wetate, updatetime, aduser
+      )
+    values (#{id,jdbcType=INTEGER}, #{roid,jdbcType=INTEGER}, #{waterconsumption,jdbcType=DOUBLE}, 
+      #{electricityconsumption,jdbcType=DOUBLE}, #{waterrate,jdbcType=DOUBLE}, #{electricityrate,jdbcType=DOUBLE}, 
+      #{usagedays,jdbcType=DOUBLE}, #{totalcost,jdbcType=DOUBLE}, #{paymenttime,jdbcType=VARCHAR}, 
+      #{wetate,jdbcType=VARCHAR}, #{updatetime,jdbcType=VARCHAR}, #{aduser,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.renting.entity.TbWaterElectricityTotal">
+    insert into tb_water_electricity_total
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="roid != null">
+        roid,
+      </if>
+      <if test="waterconsumption != null">
+        waterconsumption,
+      </if>
+      <if test="electricityconsumption != null">
+        electricityconsumption,
+      </if>
+      <if test="waterrate != null">
+        waterrate,
+      </if>
+      <if test="electricityrate != null">
+        electricityrate,
+      </if>
+      <if test="usagedays != null">
+        usagedays,
+      </if>
+      <if test="totalcost != null">
+        totalcost,
+      </if>
+      <if test="paymenttime != null">
+        paymenttime,
+      </if>
+      <if test="wetate != null">
+        wetate,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="aduser != null">
+        aduser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roid != null">
+        #{roid,jdbcType=INTEGER},
+      </if>
+      <if test="waterconsumption != null">
+        #{waterconsumption,jdbcType=DOUBLE},
+      </if>
+      <if test="electricityconsumption != null">
+        #{electricityconsumption,jdbcType=DOUBLE},
+      </if>
+      <if test="waterrate != null">
+        #{waterrate,jdbcType=DOUBLE},
+      </if>
+      <if test="electricityrate != null">
+        #{electricityrate,jdbcType=DOUBLE},
+      </if>
+      <if test="usagedays != null">
+        #{usagedays,jdbcType=DOUBLE},
+      </if>
+      <if test="totalcost != null">
+        #{totalcost,jdbcType=DOUBLE},
+      </if>
+      <if test="paymenttime != null">
+        #{paymenttime,jdbcType=VARCHAR},
+      </if>
+      <if test="wetate != null">
+        #{wetate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        #{aduser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.renting.entity.TbWaterElectricityTotal">
+    update tb_water_electricity_total
+    <set>
+      <if test="roid != null">
+        roid = #{roid,jdbcType=INTEGER},
+      </if>
+      <if test="waterconsumption != null">
+        waterconsumption = #{waterconsumption,jdbcType=DOUBLE},
+      </if>
+      <if test="electricityconsumption != null">
+        electricityconsumption = #{electricityconsumption,jdbcType=DOUBLE},
+      </if>
+      <if test="waterrate != null">
+        waterrate = #{waterrate,jdbcType=DOUBLE},
+      </if>
+      <if test="electricityrate != null">
+        electricityrate = #{electricityrate,jdbcType=DOUBLE},
+      </if>
+      <if test="usagedays != null">
+        usagedays = #{usagedays,jdbcType=DOUBLE},
+      </if>
+      <if test="totalcost != null">
+        totalcost = #{totalcost,jdbcType=DOUBLE},
+      </if>
+      <if test="paymenttime != null">
+        paymenttime = #{paymenttime,jdbcType=VARCHAR},
+      </if>
+      <if test="wetate != null">
+        wetate = #{wetate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        aduser = #{aduser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.renting.entity.TbWaterElectricityTotal">
+    update tb_water_electricity_total
+    set roid = #{roid,jdbcType=INTEGER},
+      waterconsumption = #{waterconsumption,jdbcType=DOUBLE},
+      electricityconsumption = #{electricityconsumption,jdbcType=DOUBLE},
+      waterrate = #{waterrate,jdbcType=DOUBLE},
+      electricityrate = #{electricityrate,jdbcType=DOUBLE},
+      usagedays = #{usagedays,jdbcType=DOUBLE},
+      totalcost = #{totalcost,jdbcType=DOUBLE},
+      paymenttime = #{paymenttime,jdbcType=VARCHAR},
+      wetate = #{wetate,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=VARCHAR},
+      aduser = #{aduser,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

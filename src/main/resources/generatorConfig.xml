@@ -37,7 +37,20 @@
         </javaClientGenerator>
         <!--生成对应表及类名-->
         <!-- 指定数据库表 domainObjectName=""-->
-        <table schema="general" tableName="tb_user"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">
+<!--        <table schema="general" tableName="tb_user"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">-->
+        <table schema="Admin" tableName="tb_admin"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false"/>
+        <table schema="Tenants" tableName="tb_tenants"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false"/>
+        <table schema="TenantsaAssociated" tableName="tb_tenants_associated"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false"/>
+        <table schema="Rooms" tableName="tb_rooms"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false"/>
+        <table schema="RoomsCheck" tableName="tb_rooms_check"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false"/>
+        <table schema="WaterElectricityUnit" tableName="tb_water_electricity_unit"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false"/>
+        <table schema="WaterElectricityUse" tableName="tb_water_electricity_use"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false"/>
+        <table schema="WaterElectricityTotal" tableName="tb_water_electricity_total"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false"/>
+        <table schema="Bill" tableName="tb_bill"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false"/>
+        <table schema="Deposit" tableName="tb_deposit"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false"/>
+        <table schema="Chummage" tableName="tb_chummage"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false"/>
+        <table schema="TaxesPattern" tableName="tb_taxes_pattern"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false"/>
+        <table schema="Order" tableName="tb_order"   enableCountByExample="false" enableUpdateByExample="false"  enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">
             <!--去除数据库表中的前缀as_-->
             <domainObjectRenamingRule searchString="^Tb" replaceString="" />
             <!--<domainObjectRenamingRule searchString="^[^_]+" replaceString="" />-->

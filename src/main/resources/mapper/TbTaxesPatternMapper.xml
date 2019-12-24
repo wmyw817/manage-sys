@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.renting.dao.TbTaxesPatternMapper">
+  <resultMap id="BaseResultMap" type="com.renting.entity.TbTaxesPattern">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="taxesptn" jdbcType="INTEGER" property="taxesptn" />
+    <result column="taxescomment" jdbcType="VARCHAR" property="taxescomment" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+    <result column="aduser" jdbcType="VARCHAR" property="aduser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, taxesptn, taxescomment, updatetime, aduser
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_taxes_pattern
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_taxes_pattern
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.renting.entity.TbTaxesPattern">
+    insert into tb_taxes_pattern (id, taxesptn, taxescomment, 
+      updatetime, aduser)
+    values (#{id,jdbcType=INTEGER}, #{taxesptn,jdbcType=INTEGER}, #{taxescomment,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=VARCHAR}, #{aduser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.renting.entity.TbTaxesPattern">
+    insert into tb_taxes_pattern
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="taxesptn != null">
+        taxesptn,
+      </if>
+      <if test="taxescomment != null">
+        taxescomment,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="aduser != null">
+        aduser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="taxesptn != null">
+        #{taxesptn,jdbcType=INTEGER},
+      </if>
+      <if test="taxescomment != null">
+        #{taxescomment,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        #{aduser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.renting.entity.TbTaxesPattern">
+    update tb_taxes_pattern
+    <set>
+      <if test="taxesptn != null">
+        taxesptn = #{taxesptn,jdbcType=INTEGER},
+      </if>
+      <if test="taxescomment != null">
+        taxescomment = #{taxescomment,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        aduser = #{aduser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.renting.entity.TbTaxesPattern">
+    update tb_taxes_pattern
+    set taxesptn = #{taxesptn,jdbcType=INTEGER},
+      taxescomment = #{taxescomment,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=VARCHAR},
+      aduser = #{aduser,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

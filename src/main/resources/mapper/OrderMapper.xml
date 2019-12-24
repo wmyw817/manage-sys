@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.renting.dao.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.renting.entity.Order">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="roid" jdbcType="INTEGER" property="roid" />
+    <result column="ordtotalrentaltime" jdbcType="VARCHAR" property="ordtotalrentaltime" />
+    <result column="ordtotalrent" jdbcType="DOUBLE" property="ordtotalrent" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+    <result column="aduser" jdbcType="VARCHAR" property="aduser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, roid, ordtotalrentaltime, ordtotalrent, updatetime, aduser
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.renting.entity.Order">
+    insert into tb_order (id, roid, ordtotalrentaltime, 
+      ordtotalrent, updatetime, aduser
+      )
+    values (#{id,jdbcType=INTEGER}, #{roid,jdbcType=INTEGER}, #{ordtotalrentaltime,jdbcType=VARCHAR}, 
+      #{ordtotalrent,jdbcType=DOUBLE}, #{updatetime,jdbcType=VARCHAR}, #{aduser,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.renting.entity.Order">
+    insert into tb_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="roid != null">
+        roid,
+      </if>
+      <if test="ordtotalrentaltime != null">
+        ordtotalrentaltime,
+      </if>
+      <if test="ordtotalrent != null">
+        ordtotalrent,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="aduser != null">
+        aduser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roid != null">
+        #{roid,jdbcType=INTEGER},
+      </if>
+      <if test="ordtotalrentaltime != null">
+        #{ordtotalrentaltime,jdbcType=VARCHAR},
+      </if>
+      <if test="ordtotalrent != null">
+        #{ordtotalrent,jdbcType=DOUBLE},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        #{aduser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.renting.entity.Order">
+    update tb_order
+    <set>
+      <if test="roid != null">
+        roid = #{roid,jdbcType=INTEGER},
+      </if>
+      <if test="ordtotalrentaltime != null">
+        ordtotalrentaltime = #{ordtotalrentaltime,jdbcType=VARCHAR},
+      </if>
+      <if test="ordtotalrent != null">
+        ordtotalrent = #{ordtotalrent,jdbcType=DOUBLE},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        aduser = #{aduser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.renting.entity.Order">
+    update tb_order
+    set roid = #{roid,jdbcType=INTEGER},
+      ordtotalrentaltime = #{ordtotalrentaltime,jdbcType=VARCHAR},
+      ordtotalrent = #{ordtotalrent,jdbcType=DOUBLE},
+      updatetime = #{updatetime,jdbcType=VARCHAR},
+      aduser = #{aduser,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

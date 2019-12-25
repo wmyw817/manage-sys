@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.renting.dao.RoomsMapper">
+  <resultMap id="BaseResultMap" type="com.renting.entity.Rooms">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="roid" jdbcType="INTEGER" property="roid" />
+    <result column="rostate" jdbcType="VARCHAR" property="rostate" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+    <result column="aduser" jdbcType="VARCHAR" property="aduser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, roid, rostate, updatetime, aduser
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_rooms
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_rooms
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.renting.entity.Rooms">
+    insert into tb_rooms (id, roid, rostate, 
+      updatetime, aduser)
+    values (#{id,jdbcType=INTEGER}, #{roid,jdbcType=INTEGER}, #{rostate,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=VARCHAR}, #{aduser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.renting.entity.Rooms">
+    insert into tb_rooms
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="roid != null">
+        roid,
+      </if>
+      <if test="rostate != null">
+        rostate,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="aduser != null">
+        aduser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roid != null">
+        #{roid,jdbcType=INTEGER},
+      </if>
+      <if test="rostate != null">
+        #{rostate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        #{aduser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.renting.entity.Rooms">
+    update tb_rooms
+    <set>
+      <if test="roid != null">
+        roid = #{roid,jdbcType=INTEGER},
+      </if>
+      <if test="rostate != null">
+        rostate = #{rostate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        aduser = #{aduser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.renting.entity.Rooms">
+    update tb_rooms
+    set roid = #{roid,jdbcType=INTEGER},
+      rostate = #{rostate,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=VARCHAR},
+      aduser = #{aduser,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

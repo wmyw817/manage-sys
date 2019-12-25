@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.renting.dao.ChummageMapper">
+  <resultMap id="BaseResultMap" type="com.renting.entity.Chummage">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="roid" jdbcType="INTEGER" property="roid" />
+    <result column="chrent" jdbcType="DOUBLE" property="chrent" />
+    <result column="chpaymenttime" jdbcType="VARCHAR" property="chpaymenttime" />
+    <result column="chnextpaymenttime" jdbcType="VARCHAR" property="chnextpaymenttime" />
+    <result column="chtate" jdbcType="VARCHAR" property="chtate" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+    <result column="aduser" jdbcType="VARCHAR" property="aduser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, roid, chrent, chpaymenttime, chnextpaymenttime, chtate, updatetime, aduser
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_chummage
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_chummage
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.renting.entity.Chummage">
+    insert into tb_chummage (id, roid, chrent, 
+      chpaymenttime, chnextpaymenttime, chtate, 
+      updatetime, aduser)
+    values (#{id,jdbcType=INTEGER}, #{roid,jdbcType=INTEGER}, #{chrent,jdbcType=DOUBLE}, 
+      #{chpaymenttime,jdbcType=VARCHAR}, #{chnextpaymenttime,jdbcType=VARCHAR}, #{chtate,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=VARCHAR}, #{aduser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.renting.entity.Chummage">
+    insert into tb_chummage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="roid != null">
+        roid,
+      </if>
+      <if test="chrent != null">
+        chrent,
+      </if>
+      <if test="chpaymenttime != null">
+        chpaymenttime,
+      </if>
+      <if test="chnextpaymenttime != null">
+        chnextpaymenttime,
+      </if>
+      <if test="chtate != null">
+        chtate,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="aduser != null">
+        aduser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roid != null">
+        #{roid,jdbcType=INTEGER},
+      </if>
+      <if test="chrent != null">
+        #{chrent,jdbcType=DOUBLE},
+      </if>
+      <if test="chpaymenttime != null">
+        #{chpaymenttime,jdbcType=VARCHAR},
+      </if>
+      <if test="chnextpaymenttime != null">
+        #{chnextpaymenttime,jdbcType=VARCHAR},
+      </if>
+      <if test="chtate != null">
+        #{chtate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        #{aduser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.renting.entity.Chummage">
+    update tb_chummage
+    <set>
+      <if test="roid != null">
+        roid = #{roid,jdbcType=INTEGER},
+      </if>
+      <if test="chrent != null">
+        chrent = #{chrent,jdbcType=DOUBLE},
+      </if>
+      <if test="chpaymenttime != null">
+        chpaymenttime = #{chpaymenttime,jdbcType=VARCHAR},
+      </if>
+      <if test="chnextpaymenttime != null">
+        chnextpaymenttime = #{chnextpaymenttime,jdbcType=VARCHAR},
+      </if>
+      <if test="chtate != null">
+        chtate = #{chtate,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        aduser = #{aduser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.renting.entity.Chummage">
+    update tb_chummage
+    set roid = #{roid,jdbcType=INTEGER},
+      chrent = #{chrent,jdbcType=DOUBLE},
+      chpaymenttime = #{chpaymenttime,jdbcType=VARCHAR},
+      chnextpaymenttime = #{chnextpaymenttime,jdbcType=VARCHAR},
+      chtate = #{chtate,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=VARCHAR},
+      aduser = #{aduser,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

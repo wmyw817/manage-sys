@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.renting.dao.TenantsAssociatedMapper">
+  <resultMap id="BaseResultMap" type="com.renting.entity.TenantsAssociated">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="tenuser" jdbcType="VARCHAR" property="tenuser" />
+    <result column="tengender" jdbcType="VARCHAR" property="tengender" />
+    <result column="tenidcard" jdbcType="VARCHAR" property="tenidcard" />
+    <result column="tennation" jdbcType="VARCHAR" property="tennation" />
+    <result column="tenage" jdbcType="VARCHAR" property="tenage" />
+    <result column="tenphone" jdbcType="VARCHAR" property="tenphone" />
+    <result column="tenpositive" jdbcType="VARCHAR" property="tenpositive" />
+    <result column="tenroomid" jdbcType="VARCHAR" property="tenroomid" />
+    <result column="tencomment" jdbcType="VARCHAR" property="tencomment" />
+    <result column="updatetime" jdbcType="VARCHAR" property="updatetime" />
+    <result column="aduser" jdbcType="VARCHAR" property="aduser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenuser, tengender, tenidcard, tennation, tenage, tenphone, tenpositive, tenroomid, 
+    tencomment, updatetime, aduser
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_tenants_associated
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_tenants_associated
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.renting.entity.TenantsAssociated">
+    insert into tb_tenants_associated (id, tenuser, tengender, 
+      tenidcard, tennation, tenage, 
+      tenphone, tenpositive, tenroomid, 
+      tencomment, updatetime, aduser
+      )
+    values (#{id,jdbcType=INTEGER}, #{tenuser,jdbcType=VARCHAR}, #{tengender,jdbcType=VARCHAR}, 
+      #{tenidcard,jdbcType=VARCHAR}, #{tennation,jdbcType=VARCHAR}, #{tenage,jdbcType=VARCHAR}, 
+      #{tenphone,jdbcType=VARCHAR}, #{tenpositive,jdbcType=VARCHAR}, #{tenroomid,jdbcType=VARCHAR}, 
+      #{tencomment,jdbcType=VARCHAR}, #{updatetime,jdbcType=VARCHAR}, #{aduser,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.renting.entity.TenantsAssociated">
+    insert into tb_tenants_associated
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="tenuser != null">
+        tenuser,
+      </if>
+      <if test="tengender != null">
+        tengender,
+      </if>
+      <if test="tenidcard != null">
+        tenidcard,
+      </if>
+      <if test="tennation != null">
+        tennation,
+      </if>
+      <if test="tenage != null">
+        tenage,
+      </if>
+      <if test="tenphone != null">
+        tenphone,
+      </if>
+      <if test="tenpositive != null">
+        tenpositive,
+      </if>
+      <if test="tenroomid != null">
+        tenroomid,
+      </if>
+      <if test="tencomment != null">
+        tencomment,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="aduser != null">
+        aduser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tenuser != null">
+        #{tenuser,jdbcType=VARCHAR},
+      </if>
+      <if test="tengender != null">
+        #{tengender,jdbcType=VARCHAR},
+      </if>
+      <if test="tenidcard != null">
+        #{tenidcard,jdbcType=VARCHAR},
+      </if>
+      <if test="tennation != null">
+        #{tennation,jdbcType=VARCHAR},
+      </if>
+      <if test="tenage != null">
+        #{tenage,jdbcType=VARCHAR},
+      </if>
+      <if test="tenphone != null">
+        #{tenphone,jdbcType=VARCHAR},
+      </if>
+      <if test="tenpositive != null">
+        #{tenpositive,jdbcType=VARCHAR},
+      </if>
+      <if test="tenroomid != null">
+        #{tenroomid,jdbcType=VARCHAR},
+      </if>
+      <if test="tencomment != null">
+        #{tencomment,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        #{aduser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.renting.entity.TenantsAssociated">
+    update tb_tenants_associated
+    <set>
+      <if test="tenuser != null">
+        tenuser = #{tenuser,jdbcType=VARCHAR},
+      </if>
+      <if test="tengender != null">
+        tengender = #{tengender,jdbcType=VARCHAR},
+      </if>
+      <if test="tenidcard != null">
+        tenidcard = #{tenidcard,jdbcType=VARCHAR},
+      </if>
+      <if test="tennation != null">
+        tennation = #{tennation,jdbcType=VARCHAR},
+      </if>
+      <if test="tenage != null">
+        tenage = #{tenage,jdbcType=VARCHAR},
+      </if>
+      <if test="tenphone != null">
+        tenphone = #{tenphone,jdbcType=VARCHAR},
+      </if>
+      <if test="tenpositive != null">
+        tenpositive = #{tenpositive,jdbcType=VARCHAR},
+      </if>
+      <if test="tenroomid != null">
+        tenroomid = #{tenroomid,jdbcType=VARCHAR},
+      </if>
+      <if test="tencomment != null">
+        tencomment = #{tencomment,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="aduser != null">
+        aduser = #{aduser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.renting.entity.TenantsAssociated">
+    update tb_tenants_associated
+    set tenuser = #{tenuser,jdbcType=VARCHAR},
+      tengender = #{tengender,jdbcType=VARCHAR},
+      tenidcard = #{tenidcard,jdbcType=VARCHAR},
+      tennation = #{tennation,jdbcType=VARCHAR},
+      tenage = #{tenage,jdbcType=VARCHAR},
+      tenphone = #{tenphone,jdbcType=VARCHAR},
+      tenpositive = #{tenpositive,jdbcType=VARCHAR},
+      tenroomid = #{tenroomid,jdbcType=VARCHAR},
+      tencomment = #{tencomment,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=VARCHAR},
+      aduser = #{aduser,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

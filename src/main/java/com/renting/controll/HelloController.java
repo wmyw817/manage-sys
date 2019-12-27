@@ -37,6 +37,11 @@ public class HelloController {
         return "login";
     }
 
+    @RequestMapping("/sucess")
+    public String sucess() {
+        return "sucess";
+    }
+
     @RequestMapping("/scho")
     public String scho() {
         return "scho";
@@ -45,11 +50,6 @@ public class HelloController {
     @RequestMapping("/sour")
     public String sour() {
         return "sour";
-    }
-
-    @RequestMapping("/sucess")
-    public String sucess() {
-        return "sucess";
     }
 
     @RequestMapping("/errors")

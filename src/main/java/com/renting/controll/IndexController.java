@@ -30,7 +30,7 @@ public class IndexController {
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(String username, String password, HttpSession session, Model model, HttpServletResponse response, HttpServletRequest request) {
+    public String login(String username, String password, HttpSession session,HttpServletResponse response, HttpServletRequest request) {
 //RequestUtil.getRealIP(request)  获取ip
         User user = usersimpl.UserInfo(username);
         if (user == null) {

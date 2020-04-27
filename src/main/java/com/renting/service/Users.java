@@ -4,7 +4,7 @@ import com.renting.entity.User;
 
 public interface Users {
     /**
-     * 修改三
+     * 修改四
      * @return
      */
     public User selectAllInfo();
